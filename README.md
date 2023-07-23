@@ -26,3 +26,7 @@ Untuk menjalankan konfigurasi `prisma`, jalankan perintah berikut:
 ```
 npx prisma migrate dev --name <nama-migrasi>
 ```
+
+## Dokumentasi API
+
+Dokumentasi API dapat dilihat pada [link berikut](https://documenter.getpostman.com/view/16309435/2s946mZpqS).
