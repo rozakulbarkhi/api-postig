@@ -577,7 +577,7 @@ const upload = async (user, request) => {
   }
 
   const data = {};
-  data.id = user;
+  data.id = user || null;
   data.url = `http://localhost:3000/${request.path.replace("public/", "")}`;
   data.filename = request.filename;
   data.mimetype = request.mimetype;

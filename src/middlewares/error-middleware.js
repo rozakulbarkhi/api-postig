@@ -9,7 +9,7 @@ const errorMiddleware = async (err, req, res, next) => {
 
   if (err instanceof ResponseError) {
     console.log(err);
-    res
+    return res
       .status(err.status)
       .json({
         success: false,
@@ -20,7 +20,7 @@ const errorMiddleware = async (err, req, res, next) => {
   } else if (err instanceof MulterError) {
     console.log(err);
 
-    res
+    return res
       .status(400)
       .json({
         success: false,
@@ -30,7 +30,7 @@ const errorMiddleware = async (err, req, res, next) => {
       .end();
   } else {
     console.log(err);
-    res
+    return res
       .status(500)
       .json({
         success: false,
