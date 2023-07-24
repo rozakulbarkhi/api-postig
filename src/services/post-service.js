@@ -71,10 +71,20 @@ const update = async (user, request) => {
     where: {
       id: userReq.id,
     },
+    select: {
+      userId: true,
+    },
   });
 
   if (!postExist) {
-    throw new ResponseError(404, "Post not found");
+    throw new ResponseError(400, "Post not found");
+  }
+
+  if (postExist.userId !== user) {
+    throw new ResponseError(
+      400,
+      "You don't have permission to update this post"
+    );
   }
 
   return prismaClient.post.update({
@@ -123,10 +133,20 @@ const deletePost = async (user, request) => {
     where: {
       id: userReq.id,
     },
+    select: {
+      userId: true,
+    },
   });
 
   if (!postExist) {
     throw new ResponseError(404, "Post not found");
+  }
+
+  if (postExist.userId !== user) {
+    throw new ResponseError(
+      400,
+      "You don't have permission to delete this post"
+    );
   }
 
   return prismaClient.post.delete({
