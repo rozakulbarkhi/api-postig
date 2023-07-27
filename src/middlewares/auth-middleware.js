@@ -14,13 +14,13 @@ const authMiddleware = (req, res, next) => {
     });
   }
 
-  if (!req.cookies.token) {
-    return res.status(401).json({
-      success: false,
-      message: "You are not logged in",
-      data: null,
-    });
-  }
+  // if (!req.cookies.token) {
+  //   return res.status(401).json({
+  //     success: false,
+  //     message: "You are not logged in",
+  //     data: null,
+  //   });
+  // }
 
   const token = header.split(" ")[1];
 

@@ -54,6 +54,7 @@ const login = async (request) => {
   return jwt.sign(
     {
       id: userExist.id,
+      username: userExist.username,
     },
     process.env.JWT_SECRET,
     {

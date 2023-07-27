@@ -21,7 +21,7 @@ const getPostValidation = Joi.object({
 
 const searchPostValidation = Joi.object({
   page: Joi.number().min(1).positive().default(1),
-  limit: Joi.number().min(1).positive().max(100).default(10),
+  limit: Joi.number().min(1).positive().max(100).default(8),
   caption: Joi.string().max(100).optional(),
   tags: Joi.string().max(100).optional(),
   search: Joi.string().max(100).optional(),
@@ -30,7 +30,7 @@ const searchPostValidation = Joi.object({
 const searchPostByUserValidation = Joi.object({
   id: Joi.number().required(),
   page: Joi.number().min(1).positive().default(1),
-  limit: Joi.number().min(1).positive().max(100).default(10),
+  limit: Joi.number().min(1).positive().max(100).default(8),
   caption: Joi.string().max(100).optional(),
   tags: Joi.string().max(100).optional(),
   search: Joi.string().max(100).optional(),

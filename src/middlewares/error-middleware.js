@@ -24,7 +24,7 @@ const errorMiddleware = async (err, req, res, next) => {
       .status(400)
       .json({
         success: false,
-        message: "File too large, max 1MB",
+        message: err.message,
         data: null,
       })
       .end();
